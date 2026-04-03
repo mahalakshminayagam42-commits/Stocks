@@ -9,9 +9,11 @@ import Foundation
 import Combine
 
 
-enum SortOption {
-    case price
-    case change
+enum SortOption : String,CaseIterable,Equatable,Identifiable {
+    case price = "Price"
+    case change = "Price Change"
+    
+    var id : String { rawValue }
 }
 
 protocol StockRepository {

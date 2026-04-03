@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct StockPriceTrackerApp: App {
+struct StockApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SymbolsView()
         }
     }
 }

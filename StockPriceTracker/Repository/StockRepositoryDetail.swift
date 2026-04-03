@@ -47,7 +47,7 @@ final class StockRepositoryDetail: StockRepository {
     }
 
     private func setup() {
-        stocks = Stock.mock()
+        stocks = StockSeedData.stocks
 
         webSocket.onMessagePublisher
             .sink { [weak self] _ in
@@ -69,9 +69,12 @@ final class StockRepositoryDetail: StockRepository {
 
         switch sortOption {
         case .price:
-            sorted = stocks.sorted { $0.price ?? 0.0 > $1.price ?? 0.0 }
+            sorted = stocks.sorted { $0.currentPrice ?? 0.0 > $1.currentPrice ?? 0.0 }
         case .change:
-            sorted = stocks.sorted { $0.change ?? 0.0 > $1.change ?? 0.0 }
+            sorted = stocks.sorted {
+                $0.priceChange > $1.priceChange
+                
+            }
         }
 
         subject.send(sorted)

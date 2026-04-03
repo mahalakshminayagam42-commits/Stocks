@@ -25,12 +25,17 @@ final class WebSocketService : WebSocketServiceProtocol {
     
     func connect() {
         
+        print("Connecting")
+        
         guard let url = URL(string: "wss://ws.postman-echo.com/raw") else { return }
             
             task = URLSession.shared.webSocketTask(with: url)
             task?.resume()
             
             statusSubject.send(true)
+        
+         print(" WebSocket Connected")
+
         
             receive()
         }

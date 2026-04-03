@@ -12,8 +12,8 @@ struct PriceGenerator {
     static func update(stock : Stock) -> Stock {
         var update = stock
         let change = Double.random(in: -2...2)
-        update.change = change
-        update.price? += change
+        update.previousPrice = update.currentPrice
+        update.currentPrice? += change
         
         return update
     }
