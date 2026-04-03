@@ -36,13 +36,10 @@ struct SymbolsView: View {
                 
                 .padding(.horizontal)
                 
-                
-                Picker("Sort",selection: Binding(get: {viewModel.sortOption}, set: {viewModel.updateSort($0)}
-                )) {
+                Picker("Sort", selection: $viewModel.sortOption) {
                     ForEach(SortOption.allCases) { option in
-                        Text(option.rawValue).tag(option)
-                        
-                    }
+                     Text(option.rawValue).tag(option)
+                  }
                 }
                 
                 .pickerStyle(.segmented)

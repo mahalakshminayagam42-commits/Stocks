@@ -56,17 +56,25 @@ final class WebSocketService : WebSocketServiceProtocol {
         
         private func receive() {
             task?.receive {[weak self] result in
+                guard let self = self else {return}
                 switch result {
                 case .success(.string(let text)):
-                    self?.subject.send(text)
+                    self.subject.send(text)
+                    self.receive()
+                    
                     
                 case .failure(let error):
-                    print("Receive error :",error)
+                    print("Receive error :",error.localizedDescription)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        print("Reconnecting")
+                        self.connect()
+                    }
                     
                 default:
                     break
                 }
-                self?.receive()
+               
                 
             }
         }

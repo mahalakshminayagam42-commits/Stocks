@@ -18,7 +18,11 @@ enum ConnectionState : Equatable {
 @MainActor
 final class SymbolsViewModel : ObservableObject {
     @Published var stocks : [Stock] = []
-    @Published var sortOption : SortOption = .price
+    @Published var sortOption : SortOption = .price {
+        didSet {
+            applySort()
+        }
+    }
     @Published var connectionState : ConnectionState = .disconnected
     @Published var isFeedRunning = false
     
@@ -37,10 +41,12 @@ final class SymbolsViewModel : ObservableObject {
         if connectionState == .connected {
             repository.stop()
             connectionState = .disconnected
+            isFeedRunning  = false
         }
         else {
             repository.start()
             connectionState = .connected
+            isFeedRunning = true
         }
     }
     
