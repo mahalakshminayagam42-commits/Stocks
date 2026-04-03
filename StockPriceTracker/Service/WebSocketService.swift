@@ -6,13 +6,22 @@
 //
 
 import Foundation
+import Combine
 
 
 final class WebSocketService : WebSocketServiceProtocol {
     private var task : URLSessionWebSocketTask?
+    private let subject = PassthroughSubject<String,Never>()
+    private let statusSubject = CurrentValueSubject<Bool,Never>(false)
     
-    var onMessage: ((String) -> Void)?
-    var onStatusChange: ((Bool) -> Void)?
+
+    var onMessagePublisher: AnyPublisher<String, Never> {
+        subject.eraseToAnyPublisher()
+    }
+    
+    var connectionStatus : AnyPublisher<Bool,Never> {
+        statusSubject.eraseToAnyPublisher()
+    }
     
     func connect() {
         
@@ -21,14 +30,14 @@ final class WebSocketService : WebSocketServiceProtocol {
             task = URLSession.shared.webSocketTask(with: url)
             task?.resume()
             
-            onStatusChange?(true)
-            
+            statusSubject.send(true)
+        
             receive()
         }
         
         func disconnect() {
             task?.cancel()
-            onStatusChange?(false)
+            statusSubject.send(false)
         }
         
         func send(message : String) {
@@ -44,7 +53,7 @@ final class WebSocketService : WebSocketServiceProtocol {
             task?.receive {[weak self] result in
                 switch result {
                 case .success(.string(let text)):
-                    self?.onMessage?(text)
+                    self?.subject.send(text)
                     
                 case .failure(let error):
                     print("Receive error :",error)

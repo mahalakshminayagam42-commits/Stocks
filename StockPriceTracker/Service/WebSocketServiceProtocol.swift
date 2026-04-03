@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Combine
 
 protocol WebSocketServiceProtocol {
     
@@ -14,6 +14,6 @@ protocol WebSocketServiceProtocol {
     func disconnect()
     func send(message : String)
     
-    var onMessage : ((String) -> Void)? {get set}
-    var onStatusChange : ((Bool) -> Void)? {get set}
+    var onMessagePublisher : AnyPublisher<String,Never> { get}
+    var connectionStatus : AnyPublisher <Bool,Never> { get}
 }
