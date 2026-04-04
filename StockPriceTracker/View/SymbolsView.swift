@@ -46,8 +46,14 @@ struct SymbolsView: View {
                 .padding(.horizontal)
              
                 List(viewModel.stocks) { stock in
-                  StockRowView(stock: stock)
                     
+                 NavigationLink(destination: SymbolDetailView(
+                    stock: stock, viewModel: viewModel
+                 )
+                 ) {
+                     StockRowView(stock: stock)
+                 }
+            
                 }
                 
                 .listStyle(.plain)
