@@ -11,15 +11,6 @@ struct SymbolsView: View {
     
     @StateObject var viewModel : SymbolsViewModel
     
-    init() {
-        let webSocket = WebSocketService()
-        let repository = StockRepositoryDetail(webSocket: webSocket)
-
-        _viewModel = StateObject(
-            wrappedValue: SymbolsViewModel(repository: repository)
-        )
-    }
-    
     var body: some View {
         NavigationStack {
             VStack(spacing: 12) {

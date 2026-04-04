@@ -11,7 +11,15 @@ import SwiftUI
 struct StockApp: App {
     var body: some Scene {
         WindowGroup {
-            SymbolsView()
+            //SymbolsView()
+            
+                let webSocket = WebSocketService()
+                let repository = StockRepositoryDetail(webSocket: webSocket)
+               let viewModel = SymbolsViewModel(repository: repository)
+
+               SymbolsView(viewModel: viewModel)
+
+            }
         }
     }
-}
+

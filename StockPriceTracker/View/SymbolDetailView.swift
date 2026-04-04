@@ -28,6 +28,13 @@ struct SymbolDetailView: View {
                 
             }
             
+            Text(stock.description ?? "")
+                .font(.body)
+                .foregroundColor(.gray)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+            
+            
             ConnectionStatusView(state: viewModel.connectionState)
             
             FeedControlButton(isRunning: viewModel.isFeedRunning, action: {

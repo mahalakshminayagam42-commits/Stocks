@@ -6,9 +6,37 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		C76C7E882F80FA750027D09C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C76C7DE92F7E74690027D09C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C76C7DF02F7E74690027D09C;
+			remoteInfo = StockPriceTracker;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		C76C7DF12F7E74690027D09C /* StockPriceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockPriceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C76C7E842F80FA750027D09C /* StockPriceTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockPriceTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C76C7E912F8109F20027D09C /* Exceptions for "StockPriceTrackerTests" folder in "StockPriceTracker" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MockStockRepository.swift,
+			);
+			target = C76C7DF02F7E74690027D09C /* StockPriceTracker */;
+		};
+		C76C7E922F8109F20027D09C /* Exceptions for "StockPriceTrackerTests" folder in "StockPriceTrackerTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MockStockRepository.swift,
+			);
+			target = C76C7E832F80FA750027D09C /* StockPriceTrackerTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C76C7DF32F7E74690027D09C /* StockPriceTracker */ = {
@@ -16,10 +44,26 @@
 			path = StockPriceTracker;
 			sourceTree = "<group>";
 		};
+		C76C7E852F80FA750027D09C /* StockPriceTrackerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C76C7E912F8109F20027D09C /* Exceptions for "StockPriceTrackerTests" folder in "StockPriceTracker" target */,
+				C76C7E922F8109F20027D09C /* Exceptions for "StockPriceTrackerTests" folder in "StockPriceTrackerTests" target */,
+			);
+			path = StockPriceTrackerTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C76C7DEE2F7E74690027D09C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C76C7E812F80FA750027D09C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				C76C7DF32F7E74690027D09C /* StockPriceTracker */,
+				C76C7E852F80FA750027D09C /* StockPriceTrackerTests */,
 				C76C7DF22F7E74690027D09C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				C76C7DF12F7E74690027D09C /* StockPriceTracker.app */,
+				C76C7E842F80FA750027D09C /* StockPriceTrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +116,29 @@
 			productReference = C76C7DF12F7E74690027D09C /* StockPriceTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C76C7E832F80FA750027D09C /* StockPriceTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C76C7E8A2F80FA750027D09C /* Build configuration list for PBXNativeTarget "StockPriceTrackerTests" */;
+			buildPhases = (
+				C76C7E802F80FA750027D09C /* Sources */,
+				C76C7E812F80FA750027D09C /* Frameworks */,
+				C76C7E822F80FA750027D09C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C76C7E892F80FA750027D09C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C76C7E852F80FA750027D09C /* StockPriceTrackerTests */,
+			);
+			name = StockPriceTrackerTests;
+			packageProductDependencies = (
+			);
+			productName = StockPriceTrackerTests;
+			productReference = C76C7E842F80FA750027D09C /* StockPriceTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -82,6 +151,10 @@
 				TargetAttributes = {
 					C76C7DF02F7E74690027D09C = {
 						CreatedOnToolsVersion = 26.2;
+					};
+					C76C7E832F80FA750027D09C = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = C76C7DF02F7E74690027D09C;
 					};
 				};
 			};
@@ -100,12 +173,20 @@
 			projectRoot = "";
 			targets = (
 				C76C7DF02F7E74690027D09C /* StockPriceTracker */,
+				C76C7E832F80FA750027D09C /* StockPriceTrackerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C76C7DEF2F7E74690027D09C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C76C7E822F80FA750027D09C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +203,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C76C7E802F80FA750027D09C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C76C7E892F80FA750027D09C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C76C7DF02F7E74690027D09C /* StockPriceTracker */;
+			targetProxy = C76C7E882F80FA750027D09C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C76C7DFA2F7E746B0027D09C /* Debug */ = {
@@ -310,6 +406,48 @@
 			};
 			name = Release;
 		};
+		C76C7E8B2F80FA750027D09C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T59JN2JXD7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.precise.com.StockPriceTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StockPriceTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StockPriceTracker";
+			};
+			name = Debug;
+		};
+		C76C7E8C2F80FA750027D09C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T59JN2JXD7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.precise.com.StockPriceTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StockPriceTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StockPriceTracker";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -327,6 +465,15 @@
 			buildConfigurations = (
 				C76C7DFD2F7E746B0027D09C /* Debug */,
 				C76C7DFE2F7E746B0027D09C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C76C7E8A2F80FA750027D09C /* Build configuration list for PBXNativeTarget "StockPriceTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C76C7E8B2F80FA750027D09C /* Debug */,
+				C76C7E8C2F80FA750027D09C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
