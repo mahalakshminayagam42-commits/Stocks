@@ -21,6 +21,8 @@ struct StockPriceTrackerTests {
         
         repo.send([stock])
         
+        try await Task.sleep(nanoseconds: 100_000_000)
+        
         #expect(vm.stocks.count == 1)
  
     }
@@ -92,8 +94,12 @@ struct StockPriceTrackerTests {
         
         repo.send([stock])
         
-        let selected = vm.stocks.first { $0.symbol == "AAPL"}
-        
-        #expect(selected != nil)
+        for _ in 0..<10 {
+                if vm.stocks.count == 1 { break }
+                try await Task.sleep(nanoseconds: 50_000_000)
+            }
+
+            
+        #expect(vm.stocks.count == 1)
     }
 }

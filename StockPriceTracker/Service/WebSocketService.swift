@@ -34,7 +34,7 @@ final class WebSocketService : WebSocketServiceProtocol {
             
             statusSubject.send(true)
         
-         print(" WebSocket Connected")
+           print(" WebSocket Connected")
 
         
             receive()
